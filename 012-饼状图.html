@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script src="js/d3.js"></script>
+    <script>
+      var margin = {
+        top: 60,
+        bottom: 60,
+        left: 60,
+        right: 60
+      }
+      var width = 500
+      var height = 500
+      var svg = d3
+        .select('body')
+        .append('svg')
+        .attr('width', width)
+        .attr('height', height)
+      var dataset = [30, 10, 43, 55, 13]
+      var pie = d3.pie()
+      var res = pie(dataset)
+      console.log(res)
+
+      console.log(d3.range(dataset.length)) // [0, 1, 2, 3, 4]
+      console.log(d3.schemeCategory10) // ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd", "#8c564b", "#e377c2", "#7f7f7f", "#bcbd22", "#17becf"]  会输出10个颜色
+      var colorScale = d3
+        .scaleOrdinal()
+        .domain(d3.range(dataset.length))
+        .range(d3.schemeCategory10)
+
+      var innerRadius = 0 //内半径
+      var outerRadius = 100 //外半径
+      var arc_generator = d3.arc().innerRadius(0).outerRadius(100)
+
+      svg.append('path')
+        .attr('d', function (d) {
+          return arc_generator(d) //往弧形生成器中出入数据
+        })
+        .attr('fill', function (d, i) {
+          return colorScale(i) //设置颜色
+        })
+    </script>
+  </body>
+</html>
