@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul>
+      <li>001</li>
+      <li>002</li>
+      <li>003</li>
+    </ul>
+    <script src="js/d3.js"></script>
+    <script>
+      // dom元素的个数 < dataset数组个数
+      var dataset = [10, 20, 30, 40, 50]
+      d3.select('ul')
+        .selectAll('li')
+        .data(dataset)
+        .text(function (d, i) {
+          return d
+        })
+        .enter()
+        .append('li')
+        .text('enter')
+    </script>
+  </body>
+</html>
