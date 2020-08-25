@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script src="js/d3.js"></script>
+    <script>
+      var index = [0, 1, 2, 3, 4]
+      var color = ['red', 'blue', 'green', 'yellow', 'black']
+      var ordinal = d3.scaleOrdinal().domain(index).range(color)
+      console.log(ordinal(0)) // red
+      console.log(ordinal(1)) // blue
+      console.log(ordinal(2)) // green
+      console.log(ordinal(3)) // yellow
+    </script>
+  </body>
+</html>
