@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <ul>
+    <li id="first">0001</li>
+    <li>0002</li>
+    <li>0003</li>
+    <li>0004</li>
+    <li>0005</li>
+  </ul>
+  <script src="js/d3.js"></script>
+  <script>
+
+    // 1.追加元素
+    d3.select('ul').append('li').text('0006')
+
+    // 2.插入元素
+    d3.select('ul').insert('li', '#first').text('我是在first前面插入的元素')
+
+    // 3.删除元素
+    d3.select('#first').remove()
+
+  </script>
+</body>
+</html>

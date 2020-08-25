@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <p>张三</p>
+  <p>李四</p>
+  <p>王五</p>
+  <script src="js/d3.js"></script>
+  <script>
+    var dataset = [10, 20, 30]
+    var body = d3.select('body')
+    var p = body.selectAll('p') 
+    p.data(dataset).text(function(v, i) {
+      return '哈哈' + v
+    })
+  </script>
+</body>
+</html>

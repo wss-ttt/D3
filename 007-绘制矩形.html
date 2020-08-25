@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script src="js/d3.js"></script>
+    <script>
+      var w = 500
+      var h = 500
+      var svg = d3
+        .select('body')
+        .append('svg')
+        .attr('width', w)
+        .attr('height', h)
+      var dataset = [125, 21, 170, 130, 90, 50, 40, 80]
+      var rectH = 25
+      svg
+        .selectAll('rect')
+        .data(dataset)
+        .enter()
+        .append('rect')
+        .attr('x', 20)
+        .attr('y', function (d, i) {
+          return i * rectH
+        })
+        .attr('width', function (d, i) {
+          return d
+        })
+        .attr('height', function (d, i) {
+          return rectH - 1 // 相当于每个柱状图之间的间距为 1px
+        })
+        .attr('fill', 'steelblue') // 填充颜色
+    </script>
+  </body>
+</html>
