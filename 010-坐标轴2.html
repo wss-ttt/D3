@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script src="js/d3.js"></script>
+    <script>
+      var w = 500
+      var h = 500
+      var xData = ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
+      var svg = d3
+        .select('body')
+        .append('svg')
+        .attr('width', w)
+        .attr('height', h)
+      var linear = d3
+        .scaleOrdinal()
+        .domain(xData) // 定义域
+        .range([100, 200, 300, 400, 500, 600, 700]) // 值域
+
+      // ticks函数用于指定需要的刻度数量
+      var axis = d3.axisBottom().scale(linear).ticks(10)
+      svg.append('g').call(axis)
+    </script>
+  </body>
+</html>
